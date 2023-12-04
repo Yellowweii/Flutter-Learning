@@ -10,7 +10,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.blue[200],
         appBar: AppBar(
           backgroundColor: Colors.grey[400],
           title: Text("Choose a Location"),
@@ -18,7 +18,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
           centerTitle: true,
           elevation: 0,
         ),
-        body: Text("Choose Location screen"),
+        body: Text("choose location screen"),
       ),
     );
   }
