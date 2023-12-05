@@ -35,30 +35,26 @@ class _ChooseLocationState extends State<ChooseLocation> {
     return SafeArea(
         child: Scaffold(
       backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        backgroundColor: Colors.yellow[800],
-        title: Text("Choose a Location"),
-        titleTextStyle: TextStyle(color: Colors.white),
-        centerTitle: true,
-        elevation: 0,
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 20.0, 0, 0),
+        child: ListView.builder(
+            itemCount: locations.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
+                child: Card(
+                    child: ListTile(
+                  onTap: () {
+                    updateTime(index);
+                  },
+                  title: Text(locations[index].location),
+                  leading: CircleAvatar(
+                      backgroundImage:
+                          AssetImage("assets/${locations[index].flag}")),
+                )),
+              );
+            }),
       ),
-      body: ListView.builder(
-          itemCount: locations.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
-              child: Card(
-                  child: ListTile(
-                onTap: () {
-                  updateTime(index);
-                },
-                title: Text(locations[index].location),
-                leading: CircleAvatar(
-                    backgroundImage:
-                        AssetImage("assets/${locations[index].flag}")),
-              )),
-            );
-          }),
     ));
   }
 }
