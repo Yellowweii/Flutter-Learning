@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo4/pages/TodoApp.dart';
+import 'package:flutter_demo4/pages/CounterPage.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: "/todo-app",
+    initialRoute: "/counter-page",
     routes: {
-      "/todo-app": (context) => TodoApp(),
+      "/counter-page": (context) => CounterPage(),
     },
   ));
 }
