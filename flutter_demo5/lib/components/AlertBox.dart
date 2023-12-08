@@ -10,7 +10,6 @@ class AlertBox extends StatelessWidget {
       required this.controller,
       required this.onSave,
       required this.onCancel});
-
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
