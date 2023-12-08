@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_demo5/components/TodoTile.dart';
 import 'package:flutter_demo5/components/AlertBox.dart';
+import 'package:flutter_demo5/data/database.dart';
+import 'package:hive/hive.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,22 +11,39 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int? i;
-  List todoList = [
-    ['Make Tutorial', false],
-    ['Do Exercise', false],
-    ['Take a bath', false],
-    ['Go to sleep', false],
-  ];
-
+  TodoDataBase db = TodoDataBase();
+  final box = Hive.box('myBox');
+  final TextEditingController controller = TextEditingController();
   void createNewTask() {
     showDialog(
       context: context,
       builder: (context) {
-        String newTaskName = "";
-        return AlertBox();
+        return AlertBox(
+          controller: controller,
+          onSave: () {
+            setState(() {
+              db.todoList.add([controller.text, false]);
+              db.updateData();
+            });
+            controller.clear();
+            Navigator.pop(context);
+          },
+          onCancel: () {
+            Navigator.pop(context);
+          },
+        );
       },
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (box.get('todoList') == null) {
+      db.createInitialData();
+    } else {
+      db.loadData();
+    }
   }
 
   @override
@@ -43,14 +62,21 @@ class _HomePageState extends State<HomePage> {
           elevation: 0.0,
         ),
         body: ListView.builder(
-            itemCount: todoList.length,
+            itemCount: db.todoList.length,
             itemBuilder: (context, index) {
               return TodoTile(
-                taskName: todoList[index][0],
-                taskCompleted: todoList[index][1],
+                taskName: db.todoList[index][0],
+                taskCompleted: db.todoList[index][1],
                 onChanged: (bool? value) {
                   setState(() {
-                    todoList[index][1] = value;
+                    db.todoList[index][1] = value;
+                    db.updateData();
+                  });
+                },
+                onDelete: (context) {
+                  setState(() {
+                    db.todoList.removeAt(index);
+                    db.updateData();
                   });
                 },
               );
