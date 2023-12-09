@@ -10,7 +10,7 @@ class IntroPage extends StatelessWidget {
         body: Column(children: [
       // logo
       Padding(
-        padding: const EdgeInsets.fromLTRB(80.0, 160.0, 80.0, 40.0),
+        padding: const EdgeInsets.fromLTRB(80.0, 140.0, 80.0, 40.0),
         child: Image.asset("assets/avocado.png"),
       ),
       //we deliver groceries at your doorstep
