@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/model/cart_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           leading: Padding(
-            padding: const EdgeInsets.only(left: 24.0),
+            padding: EdgeInsets.only(left: 24.w),
             child: Icon(
               Icons.location_on,
               color: Colors.grey[700],
@@ -23,19 +24,19 @@ class HomePage extends StatelessWidget {
           title: Text(
             'Sydney, Australia',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               color: Colors.grey[700],
             ),
           ),
           centerTitle: false,
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 24.0),
+              padding: EdgeInsets.only(right: 24.w),
               child: Container(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Icon(
                   Icons.person,
@@ -46,42 +47,44 @@ class HomePage extends StatelessWidget {
           ],
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          SizedBox(height: 36),
+          SizedBox(
+            height: 24.h,
+          ),
           // good morning
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Text("Good morning,"),
           ),
 
-          SizedBox(height: 4),
+          SizedBox(height: 4.h),
           // Let's order fresh items for you
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Text(
               "Let's order fresh items for you",
               style: GoogleFonts.notoSerif(
-                fontSize: 36.0,
+                fontSize: 36.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
 
-          SizedBox(height: 24),
+          SizedBox(height: 24.h),
 
           // divider
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Divider(),
           ),
-          SizedBox(height: 24),
+          SizedBox(height: 24.h),
 
           //fresh items + grid
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Text(
               "Fresh items",
               style: TextStyle(
-                fontSize: 16.0,
+                fontSize: 16.sp,
               ),
             ),
           ),
@@ -91,9 +94,12 @@ class HomePage extends StatelessWidget {
               builder: (context, cart, child) {
                 return GridView.builder(
                     itemCount: cart.shopItems.length,
-                    padding: EdgeInsets.all(10),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, childAspectRatio: 0.8),
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.8,
+                    ),
                     itemBuilder: (context, index) {
                       return GroceryItemTile(
                         itemName: cart.shopItems[index][0],

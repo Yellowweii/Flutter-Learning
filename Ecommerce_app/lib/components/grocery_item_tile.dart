@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GroceryItemTile extends StatelessWidget {
   final String itemName;
@@ -18,18 +19,18 @@ class GroceryItemTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
       child: Container(
         decoration: BoxDecoration(
           color: color[100],
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
         ),
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           // image
           Image.asset(
             imagePath,
-            height: 64,
+            height: 64.h,
           ),
           // item name
           Text(itemName),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,7 @@ class CartPage extends StatelessWidget {
           title: Text(
             "My Cart",
             style: GoogleFonts.notoSerif(
-              fontSize: 24.0,
+              fontSize: 24.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -28,19 +29,21 @@ class CartPage extends StatelessWidget {
                 Expanded(
                     child: ListView.builder(
                   itemCount: cart.cartItems.length,
-                  padding: EdgeInsets.all(12),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.all(12.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 12.w, vertical: 12.h),
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.r),
                         ),
                         child: ListTile(
                           leading: Image.asset(
                             cart.cartItems[index][2],
-                            height: 36,
+                            height: 36.h,
                           ),
                           title: Text(cart.cartItems[index][0]),
                           subtitle: Text("\$${cart.cartItems[index][1]}"),
@@ -58,13 +61,15 @@ class CartPage extends StatelessWidget {
 
                 // total price + pay button
                 Padding(
-                  padding: const EdgeInsets.all(36.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 36.w, vertical: 36.h),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.green,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(8.r),
                     ),
-                    padding: EdgeInsets.all(24),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -77,23 +82,24 @@ class CartPage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 4),
+                            SizedBox(height: 4.h),
                             Text(
                               "\$${cart.calculateTotal()}",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18),
+                                  fontSize: 18.sp),
                             ),
                           ],
                         ),
                         Container(
-                          padding: EdgeInsets.all(12.0),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 12.w, vertical: 12.h),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.green.shade100,
                             ),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(12.r),
                           ),
                           child: Row(
                             children: [
@@ -105,7 +111,7 @@ class CartPage extends StatelessWidget {
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
-                                size: 16,
+                                size: 16.sp,
                                 color: Colors.white,
                               )
                             ],

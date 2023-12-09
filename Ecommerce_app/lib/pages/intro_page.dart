@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class IntroPage extends StatelessWidget {
@@ -10,16 +11,20 @@ class IntroPage extends StatelessWidget {
         body: Column(children: [
       // logo
       Padding(
-        padding: const EdgeInsets.fromLTRB(80.0, 140.0, 80.0, 40.0),
-        child: Image.asset("assets/avocado.png"),
+        padding: EdgeInsets.fromLTRB(80.w, 120.h, 80.w, 40.h),
+        child: Image.asset(
+          "assets/avocado.png",
+          width: 200.w,
+          height: 200.w,
+        ),
       ),
       //we deliver groceries at your doorstep
       Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
         child: Text(
           "We deliver groceries at your doorstep",
           style: GoogleFonts.notoSerif(
-            fontSize: 36.0,
+            fontSize: 36.sp,
             fontWeight: FontWeight.bold,
           ),
           textAlign: TextAlign.center,
@@ -27,10 +32,9 @@ class IntroPage extends StatelessWidget {
       ),
 
       SizedBox(
-        height: 24.0,
+        height: 24.h,
       ),
 
-      //fresh items every day
       Text(
         "Fresh items every day",
         style: TextStyle(
@@ -39,7 +43,7 @@ class IntroPage extends StatelessWidget {
       ),
 
       SizedBox(
-        height: 48.0,
+        height: 48.h,
       ),
       // get started button
       GestureDetector(
@@ -49,9 +53,9 @@ class IntroPage extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: Colors.deepPurple,
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(12.r),
           ),
-          padding: EdgeInsets.all(24.0),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
           child: Text(
             "Get Started",
             style: TextStyle(color: Colors.white),
