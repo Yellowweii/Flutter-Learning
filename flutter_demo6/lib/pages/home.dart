@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo6/components/category.dart';
 import 'package:flutter_demo6/components/search.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +31,8 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: Column(
-        children: [
-          Search(),
-          Text('Category'),
-        ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [Search(), SizedBox(height: 40), Category()],
       ),
     );
   }
