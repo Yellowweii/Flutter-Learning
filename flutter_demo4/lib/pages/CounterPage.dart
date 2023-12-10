@@ -20,12 +20,12 @@ class _CounterPageState extends State<CounterPage> {
     return Scaffold(
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text("You pushed the button this many times:"),
+          const Text("You pushed the button this many times:"),
           Text(
             _counter.toString(),
-            style: TextStyle(fontSize: 40),
+            style: const TextStyle(fontSize: 40),
           ),
-          ElevatedButton(onPressed: _incrementCounter, child: Text("Increment"))
+          ElevatedButton(onPressed: _incrementCounter, child: const Text("Increment"))
         ]),
       ),
     );

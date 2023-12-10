@@ -6,7 +6,7 @@ void main() {
     debugShowCheckedModeBanner: false,
     initialRoute: "/counter-page",
     routes: {
-      "/counter-page": (context) => CounterPage(),
+      "/counter-page": (context) => const CounterPage(),
     },
   ));
 }

@@ -9,9 +9,9 @@ class TodoApp extends StatefulWidget {
 
 class _TodoAppState extends State<TodoApp> {
   String greetingMessage = "";
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   void greetUsers() {
-    this.setState(() {
+    setState(() {
       greetingMessage = "Hello ${_controller.text}";
       _controller.clear();
     });
@@ -24,12 +24,12 @@ class _TodoAppState extends State<TodoApp> {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(greetingMessage, style: TextStyle(fontSize: 20)),
+          Text(greetingMessage, style: const TextStyle(fontSize: 20)),
           TextField(
               controller: _controller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: OutlineInputBorder(), hintText: "Enter your name")),
-          ElevatedButton(onPressed: greetUsers, child: Text("Tap me"))
+          ElevatedButton(onPressed: greetUsers, child: const Text("Tap me"))
         ]),
       ),
     ));
