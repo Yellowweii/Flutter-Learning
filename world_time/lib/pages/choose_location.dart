@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:world_time/services/world_time.dart';
 
 class ChooseLocation extends StatefulWidget {
+  const ChooseLocation({super.key});
+
   @override
   State<ChooseLocation> createState() => _ChooseLocationState();
 }
@@ -41,7 +43,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
             itemCount: locations.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
+                padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
                 child: Card(
                     child: ListTile(
                   onTap: () {

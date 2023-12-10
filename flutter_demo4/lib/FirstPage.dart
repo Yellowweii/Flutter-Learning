@@ -12,9 +12,9 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   List list = [
-    Home(),
-    Profile(),
-    Settings(),
+    const Home(),
+    const Profile(),
+    const Settings(),
   ];
   int _currentIndex = 0;
   void onTappedBar(int index) {
@@ -28,14 +28,14 @@ class _FirstPageState extends State<FirstPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple[200],
-        title: Text("First Page"),
+        title: const Text("First Page"),
         centerTitle: true,
       ),
       body: list[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: onTappedBar,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
