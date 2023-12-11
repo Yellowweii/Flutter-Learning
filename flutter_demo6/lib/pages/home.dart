@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo6/components/category.dart';
+import 'package:flutter_demo6/components/popular.dart';
 import 'package:flutter_demo6/components/recommendation.dart';
 import 'package:flutter_demo6/components/search.dart';
 
@@ -31,8 +32,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           Search(),
           SizedBox(height: 40),
@@ -40,7 +40,9 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          Recommendation()
+          Recommendation(),
+          SizedBox(height: 40),
+          Popular(),
         ],
       ),
     );
