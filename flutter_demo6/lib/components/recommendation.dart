@@ -35,6 +35,7 @@ class _RecommendationState extends State<Recommendation> {
         Container(
           height: 240,
           child: ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Container(

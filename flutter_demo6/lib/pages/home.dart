@@ -6,6 +6,7 @@ import 'package:flutter_demo6/components/search.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
