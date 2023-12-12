@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo7/components/button.dart';
+import 'package:flutter_demo7/pages/signin_screen.dart';
+import 'package:flutter_demo7/pages/signup_screen.dart';
+import 'package:flutter_demo7/theme/theme.dart';
 import 'package:flutter_demo7/widgets/custom_scaffold.dart';
 
 class Welcome extends StatelessWidget {
@@ -29,7 +33,29 @@ class Welcome extends StatelessWidget {
                   ),
                 ),
               )),
-          Flexible(flex: 2, child: Text("aa"))
+          Flexible(
+              flex: 2,
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: Button(
+                      buttonText: "Sign in",
+                      onTap: SignIn(),
+                      btnColor: Colors.transparent,
+                      textColor: Colors.white,
+                    )),
+                    Expanded(
+                        child: Button(
+                      buttonText: "Sign up",
+                      onTap: SignUp(),
+                      btnColor: Colors.white,
+                      textColor: lightColorScheme.primary,
+                    ))
+                  ],
+                ),
+              ))
         ],
       ),
     );
