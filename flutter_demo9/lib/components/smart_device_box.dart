@@ -18,19 +18,18 @@ class SmartDeviceBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.0),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 25),
         decoration: BoxDecoration(
-            color: Colors.grey[400], borderRadius: BorderRadius.circular(24)),
+            color: powerOn ? Colors.grey[900] : Colors.grey[400],
+            borderRadius: BorderRadius.circular(24)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             //   icon
-            Image.asset(
-              iconPath,
-              height: 60,
-            ),
+            Image.asset(iconPath,
+                height: 60, color: powerOn ? Colors.white : Colors.black),
 
             //   smart devices name + switch
             Row(
@@ -40,7 +39,10 @@ class SmartDeviceBox extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 10.0),
                   child: Text(
                     smartDeviceName,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: powerOn ? Colors.white : Colors.black),
                   ),
                 )),
                 Transform.rotate(
