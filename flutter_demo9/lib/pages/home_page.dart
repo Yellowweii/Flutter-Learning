@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo9/components/smart_device_box.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -66,21 +67,37 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Welcome home"),
+                Text(
+                  "Welcome home",
+                  style: TextStyle(fontSize: 20, color: Colors.grey[700]),
+                ),
                 Text(
                   "Yellowwei",
-                  style: TextStyle(fontSize: 40),
+                  style: GoogleFonts.bebasNeue(fontSize: 72),
                 ),
               ],
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            child: Divider(
+              color: Colors.grey[400],
+              thickness: 1,
+            ),
           ),
           //   smart devices + grid
           Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            child: Text("smart devices"),
+            child: Text(
+              "smart devices",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  color: Colors.grey[800]),
+            ),
           ),
           Expanded(
               child: GridView.builder(
